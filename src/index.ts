@@ -1,13 +1,11 @@
 // Write a funtion that create user table in db
-
+require('dotenv').config()
 import { Client } from 'pg'
+const db = process.env.DB_CONNECTION_URI
 
 const client = new Client({
-    connectionString: 'postgresql://navinkumar241999:bM7HoEWjgv4C@ep-shrill-frost-a5205jhc-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require'
+    connectionString: db
 })
-
-
-
 
 async function createUsersTable() {
     await client.connect()
